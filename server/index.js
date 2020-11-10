@@ -1,7 +1,7 @@
 const express = require('express');
 const { env } = require('yargs');
 const app = express();
-const port = process.env.PORT || 4000;
+ const port = process.env.PORT || 4000; 
 var bodyParser = require('body-parser')
 const youtubedl = require('youtube-dl')
 
@@ -12,7 +12,7 @@ app.use(
     extended: true,
   })
 );
-
+app.use(express.static("public"));
 
 
 
