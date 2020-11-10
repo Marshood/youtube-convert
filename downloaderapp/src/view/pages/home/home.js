@@ -3,34 +3,34 @@ import download from 'downloadjs';
 import Loader from 'react-loader-spinner';
 import './home.css'
 import { FcNext } from "react-icons/fc";
-import Select from 'react-select';
 import { IconContext } from "react-icons";
-import { useAlert } from "react-alert";
-import Alert from 'react-bootstrap/Alert'
- export default function Home() {
-    const [LoaderT, setLoader] = useState(false);
-    const [urlInput, setUrlInput] = useState('');
-    const [pointerEvents, setpointerEvents] = useState(false)
-    const [selectedOption, seTselectedOption] = useState('mp4');
-    const [btnDownload, setBtnDownload] = useState(false);
-    const [show, setShow] = useState(false);
-    
-    const options = [
-        { value: 'mp3', label: 'mp3' },
-        { value: 'mp4', label: 'mp4' },
-    ];
+export default function Home() {
+    const [LoaderT, setLoader] = useState(false); // to show the loader icon
+    const [urlInput, setUrlInput] = useState(''); // to save the url input
+    const [urlOutpot, setUrlOutpot] = useState(''); // save blobr
+    const [pointerEvents, setpointerEvents] = useState(false)// to stop pointer events while video processing
+    const [selectedOption, seTselectedOption] = useState('mp4');//save file format 
+    const [btnDownload, setBtnDownload] = useState(false); // to show download button 
+    const [show, setShow] = useState(false); //to show alert 
+    const [showTitle, setShowTitle] = useState(); // to show the title for the video on the screen 
+    const [fileName, setFileName] = useState("Downloading") // set file name to download
+
+    //to set the foramt
     const handleChange = selectedOption => {
-         seTselectedOption(selectedOption.target.value);
-        console.log(`Option selected:`, selectedOption.target.value);
+        seTselectedOption(selectedOption.target.value);
     };
-    function AlertHide( ) {
-         setShow(false)
-         ClearFields()
-    }  
+    //Alert hide
+    function AlertHide() {
+        setShow(false)
+        ClearFields()
+    }
+    // clear all the fields 
     function ClearFields() {
         console.log("ClearFields on process...");
         setUrlInput('')
         setBtnDownload(false)
+        setFileName("Downloading")
+        setShowTitle()
     }
     return (
         <div className={pointerEvents ? "container pointerEvents" : "container"}>
@@ -38,7 +38,7 @@ import Alert from 'react-bootstrap/Alert'
                 <h1  >Youtube Converter </h1>
             </div>
 
-             <main>
+            <main>
                 <div className="main">
                     <Loader
                         type="Puff"
@@ -50,13 +50,13 @@ import Alert from 'react-bootstrap/Alert'
                         visible={LoaderT} />
                     {show &&
                         <div class="alert">
-                        <span class="closebtn" onClick={AlertHide}>&times;</span> 
-                        <strong>Error!</strong> Your link invalid, Please try again
+                            <span class="closebtn" onClick={AlertHide}>&times;</span>
+                            <strong>Error!</strong> Your link invalid, Please try again
                       </div>
 
                     }
                     {!show &&
-                        <form onSubmit={(e) => sendLink(e)}  >
+                        <form onSubmit={(e) => sendLinkProcessing(e)}  >
 
                             <h2>Please insert a valid video URL</h2>
                             <br></br>
@@ -71,11 +71,14 @@ import Alert from 'react-bootstrap/Alert'
                                 </select>
 
                                 <br></br>
+                                <h4>
+                                    {showTitle}
+                                </h4>
                                 <br></br>
                                 {
                                     btnDownload
                                     &&
-                                    <a className="button hideBtnDownload" href={urlInput} download={`test.${selectedOption}`} onClick={ClearFields} >Click to Downloadt</a>
+                                    <a className="button hideBtnDownload" href={urlOutpot} download={`${fileName}.${selectedOption}`} onClick={ClearFields} >Click to Downloadt</a>
                                 }
                                 {
                                     !btnDownload
@@ -127,50 +130,39 @@ import Alert from 'react-bootstrap/Alert'
 
     )
 
-    function sendLink(e) {
+    function sendLinkProcessing(e) {
         e.preventDefault();
         setLoader(true);
         setpointerEvents(true);
         const YTURL = e.target.urlyoutube.value;
         console.log("YTURL 20: ", YTURL)
-        marshoodtest(YTURL);
-        // getVideo(YTURL);
-        // fetch("/")
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log(data)
-        //     });
-
-        // fetch('/sendUrlYoutubetest', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(
-        //         {
-        //             YTURL: YTURL
-        //         })
-        // })
-        //     .then(response => response.blob())
-        //     .then(data => {
-
-        //         console.log("data 37:", data)
-        //         let url = window.URL.createObjectURL(data);
-        //         console.log("url", url)
-        //         let a = document.createElement('a');
-        //         a.href = url;
-        //         a.download = 'employees.mp4';
-        //         a.click();
-
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
-
+        UrlConvert(YTURL);
     }
 
-    async function marshoodtest(YTURL) {
+    function getVideoName(YTURL) {
+        fetch('/getvideoname', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    YTURL: YTURL,
+                })
+        }).then(response => response.json())
+            .then((jsonData) => {
+                setFileName(jsonData.name)
+                setShowTitle(jsonData.name)
+                console.log("name ", fileName, "  jsonData", jsonData.name)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+    async function UrlConvert(YTURL) {
         console.log("6969")
+        getVideoName(YTURL)
+        setTimeout(() => { console.log("starting convert the video!"); }, 3000);
         fetch('/convertUrl', {
             method: 'POST',
             headers: {
@@ -191,12 +183,15 @@ import Alert from 'react-bootstrap/Alert'
                     console.log("url", url)
                     let a = document.createElement('a');
                     a.href = url;
-                    setUrlInput(url)
+                    // setUrlInput(url)
+                    setUrlOutpot(url)
                     setLoader(false);
                     setpointerEvents(false);
                     setBtnDownload(true)
                     a.download = `mployees.${selectedOption}`;
                     //a.click();
+                    console.log("colling func");
+                    // getVideoName(YTURL)
                 }
                 else {
                     console.log("error to convert the video try again!!")
@@ -204,28 +199,8 @@ import Alert from 'react-bootstrap/Alert'
                     setLoader(false);
                     setpointerEvents(false);
                 }
-
             })
-
         })
-
-
-        //  .then(response =>  response.blob())
-        // .then(data => {
-        //        console.log("test ",data.headers) 
-        //     console.log("data 37:", data, Date())
-        //     let url = window.webkitURL.createObjectURL(data);
-        //     console.log("url", url)
-        //     let a = document.createElement('a');
-        //     a.href = url;
-        //     setLoader(false);
-        //     setpointerEvents(false);
-        //     a.download = 'employees.mp3';
-        //     a.click();
-
-
-        // }) 
-
     }
 
     async function getVideo(URL) {
