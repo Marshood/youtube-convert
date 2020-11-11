@@ -13,8 +13,8 @@ export default function Home() {
     const [show, setShow] = useState(false); //to show alert 
     const [showTitle, setShowTitle] = useState(); // to show the title for the video on the screen 
     const [fileName, setFileName] = useState("Downloading") // set file name to download
-    const [VideoID, setVideoID] = useState('');
-    const [ShowVideo, setShowVideo] = useState(false);
+    const [VideoID, setVideoID] = useState('KrMIczw4Dng');
+    const [ShowVideo, setShowVideo] = useState(true);
     //to set the foramt
     const handleChange = selectedOption => {
         seTselectedOption(selectedOption.target.value);
@@ -30,7 +30,9 @@ export default function Home() {
         setUrlInput('')
         setBtnDownload(false)
         setFileName("Downloading")
-        setShowTitle()
+        setShowTitle();
+        setShowVideo(false);
+        setVideoID('');
     }
     return (
         <div className={pointerEvents ? "container pointerEvents" : "container"}>
