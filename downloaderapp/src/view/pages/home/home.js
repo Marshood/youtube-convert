@@ -3,9 +3,6 @@ import download from 'downloadjs';
 import Loader from 'react-loader-spinner';
 import './home.css'
 import { FcNext } from "react-icons/fc";
-import DownloadLink from "react-download-link";
-
-import { IconContext } from "react-icons";
 export default function Home() {
     const [LoaderT, setLoader] = useState(false); // to show the loader icon
     const [urlInput, setUrlInput] = useState(''); // to save the url input
@@ -16,7 +13,8 @@ export default function Home() {
     const [show, setShow] = useState(false); //to show alert 
     const [showTitle, setShowTitle] = useState(); // to show the title for the video on the screen 
     const [fileName, setFileName] = useState("Downloading") // set file name to download
-
+    const [VideoID, setVideoID] = useState('');
+    const [ShowVideo, setShowVideo] = useState(false);
     //to set the foramt
     const handleChange = selectedOption => {
         seTselectedOption(selectedOption.target.value);
@@ -67,8 +65,8 @@ export default function Home() {
                                 <p className="PFontSize">Format:</p>
 
                                 <select onChange={handleChange} name="cars" id="cars">
-                                    <option value="mp4">mp4</option>
-                                    <option value="mp3">mp3</option>
+                                    <option value="mp4">MP4/ Video</option>
+                                    <option value="mp3">MP3/ Audio</option>
 
                                 </select>
 
@@ -76,6 +74,9 @@ export default function Home() {
                                 <h4>
                                     {showTitle}
                                 </h4>
+                                   { ShowVideo &&
+                                    <iframe width="auto" height="auto" src={`https://www.youtube.com/embed/${VideoID}`} frameborder="0" allowfullscreen></iframe>
+                                }
                                 <br></br>
                                 {
                                     btnDownload
@@ -87,7 +88,7 @@ export default function Home() {
                                     &&
                                     <button className="button" type="submit">Convert </button>
                                 }
-                              </div>
+                            </div>
                         </form>
 
                     }
@@ -136,7 +137,7 @@ export default function Home() {
 
     function sendLinkProcessing(e) {
         e.preventDefault();
-         setLoader(true);
+        setLoader(true);
         setpointerEvents(true);
         const YTURL = e.target.urlyoutube.value;
         checkURL(YTURL);
@@ -147,8 +148,8 @@ export default function Home() {
         // download(YTURL)
     }
 
-    function checkURL(url){
-        console.log("url ",url)
+    function checkURL(url) {
+        console.log("url ", url)
         fetch('/checkURL', {
             method: 'POST',
             headers: {
@@ -157,25 +158,28 @@ export default function Home() {
             body: JSON.stringify(
                 {
                     url: url,
-                 })
+                })
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.title )
-            if(data.title!=null)
-            { console.log("title succes")
-                UrlConvert(url);
-                setFileName(data.title);
-                setShowTitle(data.title);
-            }
-            else{
-                console.log("title error")
-                console.log("error to convert the video try again!!")
-                setShow(true)
-                setLoader(false);
-                setpointerEvents(false);
-            }
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.title)
+                if (data.title != null) {
+                    console.log("title succes")
+                    UrlConvert(url);
+                    setFileName(data.title);
+                    setShowTitle(data.title);
+                    setVideoID(data.id)
+                    setShowVideo(true);
+                }
+                else {
+                    console.log("title error")
+                    console.log("error to convert the video try again!!")
+                    setShow(true)
+                    setLoader(false);
+                    setpointerEvents(false);
+                    setShowVideo(false);
+                }
+            });
 
     }
 
@@ -269,7 +273,7 @@ export default function Home() {
             .catch(err => console.error(err))
     }
 
-    
+
 
 
 }

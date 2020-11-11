@@ -103,7 +103,7 @@ app.post('/checkURL',async function (req,res){
       console.log("next :...")
       console.log("title ",info.title)
       // console.log("Sending file...")
-      res.send({title:info.title,error:null})
+      res.send({title:info.title,error:null, id: info.id})
   }
   })
 
