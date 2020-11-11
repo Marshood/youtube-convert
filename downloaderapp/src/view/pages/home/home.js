@@ -3,6 +3,8 @@ import download from 'downloadjs';
 import Loader from 'react-loader-spinner';
 import './home.css'
 import { FcNext } from "react-icons/fc";
+import DownloadLink from "react-download-link";
+
 import { IconContext } from "react-icons";
 export default function Home() {
     const [LoaderT, setLoader] = useState(false); // to show the loader icon
@@ -85,9 +87,11 @@ export default function Home() {
                                     &&
                                     <button className="button" type="submit">Convert </button>
                                 }
-                            </div>
+                              </div>
                         </form>
+
                     }
+
                 </div>
             </main>
 
@@ -132,14 +136,53 @@ export default function Home() {
 
     function sendLinkProcessing(e) {
         e.preventDefault();
-        setLoader(true);
+         setLoader(true);
         setpointerEvents(true);
         const YTURL = e.target.urlyoutube.value;
-        console.log("YTURL 20: ", YTURL)
-        UrlConvert(YTURL);
+        checkURL(YTURL);
+        console.log("YTURL 20: ", YTURL);
+        // UrlConvert(YTURL);
+
+        // getVideo(YTURL)
+        // download(YTURL)
     }
 
+    function checkURL(url){
+        console.log("url ",url)
+        fetch('/checkURL', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    url: url,
+                 })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.title )
+            if(data.title!=null)
+            { console.log("title succes")
+                UrlConvert(url);
+                setFileName(data.title);
+                setShowTitle(data.title);
+            }
+            else{
+                console.log("title error")
+                console.log("error to convert the video try again!!")
+                setShow(true)
+                setLoader(false);
+                setpointerEvents(false);
+            }
+        });
+
+    }
+
+
+
     function getVideoName(YTURL) {
+        console.log("getVideo title....")
         fetch('/getvideoname', {
             method: 'POST',
             headers: {
@@ -160,9 +203,8 @@ export default function Home() {
             })
     }
     async function UrlConvert(YTURL) {
-        console.log("6969")
-        getVideoName(YTURL)
-        setTimeout(() => { console.log("starting convert the video!"); }, 3000);
+        console.log("starting video convert....")
+        // getVideoName(YTURL)
         fetch('/convertUrl', {
             method: 'POST',
             headers: {
@@ -176,7 +218,7 @@ export default function Home() {
         }).then(function (response) {
             console.log("statuss", response.status); // returns 200
             response.blob().then(data => {
-                console.log("blob size:  ", data.size)
+                console.log("blob size:data   ", data)
                 if (data.size > 1000) {
                     console.log("data 37:", data, Date())
                     let url = window.webkitURL.createObjectURL(data);
@@ -206,58 +248,28 @@ export default function Home() {
     async function getVideo(URL) {
         console.log('getvideo URL', URL);
 
-        const response = await fetch('/sendUrlYoutubetest', {
+        const response = await fetch('/video', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(
                 {
-                    YTURL: URL
+                    url: URL
                 })
-        })
-            .then(response => {
-                //buffer to fill with all data from server
-                let pdfContentBuffer = new Int8Array();
-
-                // response.body is a readableStream
-                const reader = response.body.getReader();
-
-                //function to retreive the next chunk from the stream
-                function handleChunk({ done, value }) {
-                    if (done) {
-                        //everything has been loaded, call `download()` to save gthe file as pdf and name it "my-file.pdf"
-                        download(pdfContentBuffer, `my-file.mp3`, 'audio/mpeg')
-                        return;
-                    }
-                    console.log("Loading..", value.length, " value")
-                    // concat already loaded data with the loaded chunk
-                    pdfContentBuffer = Int8Array.from([...pdfContentBuffer, ...value]);
-                    console.log("Loading..")
-
-                    // retreive next chunk
-                    reader.read().then(handleChunk);
-                }
-
-                //retreive first chunk
-                reader.read().then(handleChunk)
+        }).then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setUrlInput(data.meta.formats[0].url)
+                console.log("testdata: ", data.meta.formats[0].url)
+                setpointerEvents(false);
+                console.log("urll", data.meta.formats[0].url);
+                download(data.meta.formats[0].url)
             })
             .catch(err => console.error(err))
-        // const reader = response.body.getReader();
-        // console.log("reader", reader)
-        // while (true) {
-        //     const { value, done } = await reader.read();
-        //     if (done){
-
-
-        //         break; 
-        //     }  
-        //     // console.log('Received', value);
-        // }
-
-        // console.log('Response fully received');
     }
 
+    
 
 
 }
