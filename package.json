@@ -6,21 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "content-disposition": "^0.5.3",
     "express": "^4.17.1",
     "mongoose": "^5.10.13",
     "nodemon": "^2.0.6",
     "optimist": "^0.6.1",
     "yargs": "^16.1.0",
     "youtube-dl": "^3.0.2",
-    "youtube-mp3-downloader": "^0.7.4",
-    "yt-dl-playlist": "^2.0.1",
     "ytdl-core": "^4.0.3"
   }
 }
