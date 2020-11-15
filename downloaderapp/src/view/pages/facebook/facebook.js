@@ -45,7 +45,7 @@ export default function YoutubeConvertPage() {
     }
     return (
         <div className={pointerEvents ? "container pointerEvents" : "container"}>
-
+<script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="header">
                 <h1  >Facebook Converter </h1>
             </div>

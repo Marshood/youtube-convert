@@ -10,7 +10,7 @@ export default function Home() {
 
     return (
         <div className={"home__container  "}>
-
+<script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="home__header ">
                 <h1  >VConventer   </h1>
             </div>

@@ -45,7 +45,7 @@ import { SocialIcon } from 'react-social-icons';
     }
     return (
         <div className={pointerEvents ? "youtube__container youtube__pointerEvents" : "youtube__container"}>
-             
+             <script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="youtube__header">
                 <h1  >Youtube Converter </h1>
             </div>
