@@ -44,14 +44,14 @@ import { SocialIcon } from 'react-social-icons';
         setVideoID('');
     }
     return (
-        <div className={pointerEvents ? "container pointerEvents" : "container"}>
+        <div className={pointerEvents ? "youtube__container youtube__pointerEvents" : "youtube__container"}>
              
-            <div className="header">
+            <div className="youtube__header">
                 <h1  >Youtube Converter </h1>
             </div>
 
             <main>
-                <div className="main">
+                <div className="youtube__main">
                     <Loader
                         type="Puff"
                         color="#00BFFF"
@@ -72,9 +72,9 @@ import { SocialIcon } from 'react-social-icons';
 
                             <h1>Please insert a valid video URL</h1>
                             <br></br>
-                            <div className="form_style_input">
+                            <div className="youtube__form_style_input">
                                 <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value); clearInputData(); }} /><br />
-                                <p className="PFontSize">Format:</p>
+                                <p className="youtube__PFontSize">Format:</p>
 
                                 <select onChange={handleChange} name="cars" id="cars">
                                     <option value="mp4">MP4/ Video</option>
@@ -93,12 +93,12 @@ import { SocialIcon } from 'react-social-icons';
                                 {
                                     btnDownload
                                     &&
-                                    <a className="button hideBtnDownload" href={urlOutpot} download={`${fileName}.${selectedOption}`} onClick={ClearFields} >Click to Downloadt</a>
+                                    <a className="youtube__button youtube__hideBtnDownload" href={urlOutpot} download={`${fileName}.${selectedOption}`} onClick={ClearFields} >Click to Downloadt</a>
                                 }
                                 {
                                     !btnDownload
                                     &&
-                                    <button className="button" type="submit">Convert </button>
+                                    <button className="youtube__button" type="submit">Convert </button>
                                 }
                             </div>
                         </form>
@@ -109,7 +109,7 @@ import { SocialIcon } from 'react-social-icons';
             </main>
 
             {/* <div id="sidebar">Sidebar</div> */}
-            <div className="about">
+            <div className="youtube__about">
                     
                 <h1> YouTube Converter</h1>
                 <p>
@@ -123,7 +123,7 @@ import { SocialIcon } from 'react-social-icons';
                 </p>
             </div>
 
-            <div className="appUse ">
+            <div className="youtube__appUse ">
                 {/* BsArrowRightShort */}
                 <h2>How to use our YouTube Converter</h2>
                 <p>

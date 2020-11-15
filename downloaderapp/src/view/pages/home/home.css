@@ -1,49 +1,9 @@
 body {    background:#d6e6f2;
      }
-    .pointerEvents{
-        pointer-events: none;
-
-    }
-    .hideBtnDownload{
-      animation: mymove 1s infinite;
-    }
-    @keyframes mymove {
-      from { box-shadow: 0 4px rgb(104, 109, 108);}
-      to { box-shadow: 0 4px rgb(236, 5, 5);}
-    }
- input{
-    width: 500px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 5px solid #d6e6f2
-
- }
- .button {
-    display: inline-block;
-    padding: 1px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: white;
-    background-color:#92b1d4;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px rgb(104, 109, 108);
-    
-    cursor: pointer;
-    
-  }
+ 
 
 
- .button:hover {background-color: #680b0b}
- .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+ 
 
  
   /* .................... */
@@ -60,7 +20,7 @@ body {    background:#d6e6f2;
   .PFontSize{
       font-size: 15px;
   }
-  .container {
+  .home__container {
     display: grid;
     height: 100vh;
     grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
@@ -68,7 +28,7 @@ body {    background:#d6e6f2;
     grid-template-areas:
       "header header header header"
       "sidebar main main sidebar2"
-      "sidebar content1 content1 sidebar2"
+      "sidebar about about sidebar2"
       "sidebar appUse appUse sidebar2"
       "sidebar footer footer sidebar2";
     grid-gap: 0.2rem;
@@ -79,7 +39,7 @@ body {    background:#d6e6f2;
     /* text-align: center; */
   }
   
-  .header {
+  .home__header {
     background:#b9d7ea;
     grid-area: header;
     border-radius: var(--main-radius);
@@ -87,17 +47,17 @@ body {    background:#d6e6f2;
     text-align: center;
       line-height: 3rem;
    }
-  .main{
+  .home__main{
     text-align: center;
 
   }
-  .appUse{
+  .home__appUse{
     background:  #769fcd;
     grid-area: appUse;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
     /* text-align: center; */
-    border: 5px solid #d6e6f2;
+    border: 5px solid #b9d7ea;
     padding: 50px;
     margin: 20px;
   }
@@ -121,24 +81,24 @@ body {    background:#d6e6f2;
     padding-top: var(--main-padding);
   }
   
-  .about {
-    background:#d6e6f2;
-    grid-area: content1;
+  .home__about {
+    background:#b9d7ea;
+    grid-area: about;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
-    border: 5px solid #d6e6f2;
+    border: 5px solid #769fcd;
     padding: 50px;
     margin: 20px;
   }
  
   
-  footer {
+  .home__footer {
     background: #b9d7ea;
     grid-area: footer;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
     text-align: center;
-    border: 5px solid #d6e6f2;
+    border: 5px solid #769fcd;
      margin: 20px;
   }
   
@@ -152,17 +112,14 @@ body {    background:#d6e6f2;
   } */
   
   @media only screen and (max-width: 550px) {
-    .container {
+    .home__container {
       grid-template-columns: 1fr;
-      grid-template-rows: 0.4fr 0fr 2fr 1fr      1fr  1fr;
+      grid-template-rows: 0.4fr 1fr 1fr 1fr   ;
       grid-template-areas:
         "header"
-        "sidebar"
-        "main"
-        "content1"
-          
+        "about"
         "appUse"
-        "footer";
+        "footer"
     }
   }
 

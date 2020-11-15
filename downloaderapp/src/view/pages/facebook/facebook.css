@@ -80,14 +80,17 @@ font-weight: 800;
 font-size: 12px;
 /* color: #004d40; */
 /* text-align: center; */
+zoom: 50%;
+
 }
 
 .header {
-background:#b9d7ea;
-grid-area: header;
-border-radius: var(--main-radius);
-padding-top: var(--main-padding);
-text-align: center;
+   background:#b9d7ea;
+   grid-area: header;
+   border-radius: var(--main-radius);
+   padding-top: var(--main-padding);
+   text-align: center;
+   line-height: 5rem;
 }
 .main{
 text-align: center;
@@ -162,7 +165,6 @@ margin: 1rem;
    "sidebar"
    "main"
    "content1"
-     
    "appUse"
    "footer";
 }

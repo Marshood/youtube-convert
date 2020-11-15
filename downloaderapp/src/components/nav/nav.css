@@ -89,7 +89,7 @@
     padding-top: .3rem;
     font-family: 'Anton', sans-serif;
     letter-spacing: 2.5px;
-    /* font-size: 16px; */
+    font-size: 16px;
     text-shadow:0 0.7px 0.7px rgba(255, 255, 255, 0.219);
   }
   
@@ -230,7 +230,7 @@
                 padding-top: -3.7rem;
                 font-family: 'Anton', sans-serif;
                 letter-spacing: 2.5px;
-                font-size: 22px;
+                font-size: 2.5vw;
                 text-shadow:none;
               }
               

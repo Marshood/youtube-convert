@@ -127,7 +127,7 @@ export default function InstgramConvertPage() {
 
                 {/* BsArrowRightShort */}
                 <p>
-                    <h2>How to use our YouTube Converter</h2>
+                    <h2>How to use our Instgram Converter</h2>
 
                     <FcNext size={32} /> Copy a video link
                 In order to convert your file, you’ll need to choose a video first. So go ahead and visit YouTube  and copy a link to the video that you’d like to get converted

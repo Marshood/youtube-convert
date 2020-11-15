@@ -21,6 +21,7 @@ export default props => {
 
 
     return (
+        <div className="navBody">
         <nav className="sidebar">
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></link>
             <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"></link>
@@ -52,6 +53,7 @@ export default props => {
                 Converter App
         </div>
         </nav>
+        </div>
     )
 
 }

@@ -9,7 +9,12 @@
 .app {
   background-color: #d6e6f2; 
   display: grid;
-  grid-template-columns: 11vw auto;
+  grid-template-columns: 0vw auto;
+  zoom: 100%;
+
+}
+.navBody{
+  z-index: 1;
 }
 
 

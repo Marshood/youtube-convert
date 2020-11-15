@@ -126,7 +126,7 @@ export default function YoutubeConvertPage() {
 
             <div className="appUse">
                 {/* BsArrowRightShort */}
-                <h1>How to use our YouTube Converter</h1>
+                <h1>How to use our Facebook Converter</h1>
 
                 <p> <FcNext size={32} /> Copy a video link
                 In order to convert your file, you’ll need to choose a video first. So go ahead and visit YouTube  and copy a link to the video that you’d like to get converted
