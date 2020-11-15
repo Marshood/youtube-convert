@@ -85,7 +85,8 @@ body {    background:#d6e6f2;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
     text-align: center;
-  }
+      line-height: 3rem;
+   }
   .main{
     text-align: center;
 
