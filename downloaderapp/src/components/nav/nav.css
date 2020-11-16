@@ -245,13 +245,29 @@
               }
               
   }
-  
-  
-        
-  
-    
-      
-    
-    
-  
-   
+   .Contack_Us{
+     font-size: medium;
+   }
+   .Contack_Us--selected{
+    font-size: 0px;
+   }
+   .menu__item--selected---contactUs{
+    font-size: medium !important;
+    color: #444444;
+    background-color: #769fcd;
+   }
+   .menu__link--selected---Contack_Us{
+    font-size: medium !important;
+    color: #444444;
+   }
+.menu__link--contactUs{
+  font-size: medium;
+  color: #808080;
+  position: relative;
+  line-height: 3rem;
+  transition: all 0.4s;
+}
+.menu__link--contactUs:hover {
+  font-size: medium;
+  color: #444444;
+}
