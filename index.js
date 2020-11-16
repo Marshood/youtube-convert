@@ -30,12 +30,13 @@ app.use(
     extended: true,
   })
 );
-// app.use(express.static("public"));
- app.use(express.static(path.join(__dirname,'downloaderapp/build')));
+app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,'client/build')));
 //handle react routing retun all requsts to react app
 app.get('*',function(req,res){
-  res.sendFile(path.join(__dirname,'downloaderapp/build','index.html'))
+  res.sendFile(path.join(__dirname,'client/build','index.html'))
 })
+
 
 const youtubeRouter = require("./routing/youtube");
 app.use("/api/youtube", youtubeRouter);
