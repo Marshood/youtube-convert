@@ -2,8 +2,7 @@
   "name": "downloaderapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000/",
-  "dependencies": {
+   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
@@ -23,6 +22,8 @@
     "youtube-dl": "^3.0.2",
     "ytdl-core": "^4.0.3"
   },
+  "proxy": "http://localhost:4000/",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
