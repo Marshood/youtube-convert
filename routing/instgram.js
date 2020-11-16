@@ -10,9 +10,9 @@ var followers = [];
 
 router.post('/Getdetails',async function (req,res){
     const { url} = req.body;
-    console.log("request coming in...","url: ",url);
+    // console.log("request coming in...","url: ",url);
     let video_url =url;
-    console.log(JSON.stringify(req.query));
+    // console.log(JSON.stringify(req.query));
     if(video_url !== undefined){
 
         if(video_url.substring(0,8) === 'https://' || video_url.substring(0,7) === 'http://' 
@@ -21,7 +21,7 @@ router.post('/Getdetails',async function (req,res){
 
             request(video_url, (error, response, html) => {
                 if(!error){
-                    console.log('Insta_grab : '+video_url+' : Loaded');
+                    // console.log('Insta_grab : '+video_url+' : Loaded');
                     let $ = cheerio.load(html);
 
                     //basic data from the meta tags

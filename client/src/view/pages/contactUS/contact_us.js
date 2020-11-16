@@ -10,8 +10,7 @@ export default function ContactUsPage() {
 
     function sendMessage(e) {
         e.preventDefault();
-        console.log("send sendMessage", e.target.input_name.value, e.target.message.value)
-        setLoader(true)
+         setLoader(true)
         fetch('/api/contact/sendMessage', {
             method: 'POST',
             headers: {
@@ -27,8 +26,7 @@ export default function ContactUsPage() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("data", data.success)
-                setTimeout(() => {  history.push("/home"); }, 2000);
+                 setTimeout(() => {  history.push("/home"); }, 2000);
              });
     }
     return (

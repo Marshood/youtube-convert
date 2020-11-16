@@ -5,21 +5,21 @@ const youtubedl = require('youtube-dl')
 // this method to get the video name and send to the client
 router.post('/getvideoname', function (req, res) {
     const { YTURL } = req.body;
-    console.log("getvideoname: ", YTURL)
+    // console.log("getvideoname: ", YTURL)
     var video;
     video = youtubedl(YTURL);
     const VideoCOnvert = new Promise((resolve, reject) => {
       video.on('info', function (info) {
-        console.log('getvideoname.....')
-        console.log('filename: ' + info._filename)
-        console.log('size: ' + info.size)
+        // console.log('getvideoname.....')
+        // console.log('filename: ' + info._filename)
+        // console.log('size: ' + info.size)
         resolve(info._filename);
   
       })
   
     });
     VideoCOnvert.then((value) => {
-      console.log("value 4343 ", value);
+      // console.log("value 4343 ", value);
       res.send({ "name": value });
     });
   
@@ -27,9 +27,9 @@ router.post('/getvideoname', function (req, res) {
   
   // this method to get the video and convert it and send to the client
   router.post('/convertUrl', async function (req, res) {
-    console.log("convertUrl..", Date())
+    // console.log("convertUrl..", Date())
     const { YTURL, selectedOption } = req.body;
-    console.log("YTURL: ", YTURL, " selectedOption: ", selectedOption)
+    // console.log("YTURL: ", YTURL, " selectedOption: ", selectedOption)
     var videopromise12
     var options = ['--extract-audio',
       '--audio-format', 'mp3',
@@ -41,34 +41,18 @@ router.post('/getvideoname', function (req, res) {
         if (err) return res.send(
           { error: 'The link you provided either not a valid url or it is not acceptable' });
         else{
-          console.log("next :...")
-          console.log("title ",info.title)
+          // console.log("title ",info.title)
           // console.log("Sending file...")
           // res.send(videopromise12.pipe(res))
       }
       })
       videopromise12 = youtubedl(YTURL);
-      videopromise12.on("close", () => { console.log("all done!!!") })
-      console.log("Sending file...")
+      videopromise12.on("close", () => { 
+        // console.log("all done!!!")
+       })
+      // console.log("Sending file...")
       res.send(videopromise12.pipe(res))
-      // res.header("Content-Disposition", `attachment; filename="Marshood.mp4"`);
-      // const VideoCOnvert = new Promise((resolve, reject) => {
-      //   videopromise12.on('info', function (info) {
-      //     console.log('Download started')
-      //     console.log('filename: ' + info._filename)
-      //     console.log('size: ' + info.size)
-      //     resolve(info._filename);
-  
-      //   })
-      // });
-  
-      // VideoCOnvert.then((value) => {
-      //   console.log("value", value);
-      //   // res.writeHead(200, { "hola": "value" });
-  
-      // });
-    
-      
+     
   
     } catch (e) {
       console.log("error ", e);
@@ -84,8 +68,7 @@ router.post('/getvideoname', function (req, res) {
       if (err) return res.send(
         { title:null ,error: 'The link you provided either not a valid url or it is not acceptable' });
       else{
-        console.log("next :...")
-        console.log("title ",info.title)
+        // console.log("title ",info.title)
         // console.log("Sending file...")
         res.send({title:info.title,error:null, id: info.id})
     }
@@ -105,7 +88,7 @@ function bytesToSize(bytes) {
   var request = require('request');
   
   router.post('/video', function (req, res, next) {
-    console.log("check video")
+    // console.log("check video")
     var url = req.body.url,
       formats = [],
       pattern = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/;

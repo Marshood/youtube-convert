@@ -20,7 +20,7 @@ router.post('/sendMessage', function (req, res) {
     };
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-            console.log(error);
+            // console.log(error);
             res.send({ success: "fasle" });
         } else {  
             res.send({ success: "true" });

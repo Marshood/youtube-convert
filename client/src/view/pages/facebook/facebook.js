@@ -28,7 +28,7 @@ export default function FacebookConvertPage() {
     }
     // clear all the fields 
     function ClearFields() {
-        console.log("ClearFields on process...");
+        // console.log("ClearFields on process...");
         setUrlInput('')
         setBtnDownload(false)
         setFileName("Downloading")
@@ -162,11 +162,6 @@ export default function FacebookConvertPage() {
         setpointerEvents(true);
         const YTURL = e.target.urlyoutube.value;
         checkURL(YTURL);
-        console.log("YTURL 20: ", YTURL);
-        // UrlConvert(YTURL);
-
-        // getVideo(YTURL)
-        // download(YTURL)
     }
 
     function checkURL(url) {
@@ -183,10 +178,8 @@ export default function FacebookConvertPage() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.title)
-                if (data.DL) {
-                    console.log("succes")
-                    UrlConvert(url);
+                 if (data.DL) {
+                     UrlConvert(url);
                     setFileName(data.DL.title);
                     setShowTitle(data.DL.title);
                     setVideoID(data.id)
@@ -194,8 +187,8 @@ export default function FacebookConvertPage() {
                     setShowVideo(true);
                 }
                 else {
-                    console.log("title error")
-                    console.log("error to convert the video try again!!")
+                    // console.log("title error")
+                    // console.log("error to convert the video try again!!")
                     setShow(true)
                     setLoader(false);
                     setpointerEvents(false);
@@ -208,8 +201,7 @@ export default function FacebookConvertPage() {
 
 
     async function UrlConvert(YTURL) {
-        console.log("starting video convert....")
-        // getVideoName(YTURL)
+         // getVideoName(YTURL)
         fetch('/api/facebook/convertUrl', {
             method: 'POST',
             headers: {
@@ -221,24 +213,19 @@ export default function FacebookConvertPage() {
                     selectedOption: selectedOption
                 })
         }).then(function (response) {
-            console.log("statuss", response.status); // returns 200
+            // console.log("statuss", response.status); // returns 200
             response.blob().then(data => {
-                console.log("blob size:data   ", data)
-                if (data.size > 1000) {
-                    console.log("data 37:", data, Date())
-                    let url = window.webkitURL.createObjectURL(data);
-                    console.log("url", url)
-                    let a = document.createElement('a');
+                 if (data.size > 1000) {
+                     let url = window.webkitURL.createObjectURL(data);
+                     let a = document.createElement('a');
                     a.href = url;
-                    // setUrlInput(url)
-                    setUrlOutpot(url)
+                     setUrlOutpot(url)
                     setLoader(false);
                     setpointerEvents(false);
                     setBtnDownload(true)
                     a.download = `mployees.${selectedOption}`;
                     //a.click();
-                    console.log("colling func");
-                    // getVideoName(YTURL)
+                     // getVideoName(YTURL)
                 }
                 else {
                     console.log("error to convert the video try again!!")

@@ -31,7 +31,6 @@ export default function InstgramConvertPage() {
     }
     // clear all the fields 
     function ClearFields() {
-        console.log("ClearFields on process...");
         setUrlInput('')
         setBtnDownload(false)
         setFileName("Downloading")
@@ -164,15 +163,9 @@ export default function InstgramConvertPage() {
         setpointerEvents(true);
         const YTURL = e.target.urlyoutube.value;
         checkURL(YTURL);
-        console.log("YTURL 20: ", YTURL);
-        // UrlConvert(YTURL);
-
-        // getVideo(YTURL)
-        // download(YTURL)
     }
 
     function checkURL(url) {
-        console.log("url ", url)
         fetch('/api/instgram/Getdetails', {
             method: 'POST',
             headers: {
@@ -185,9 +178,7 @@ export default function InstgramConvertPage() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.title)
                 if (data.title != null) {
-                    console.log("title succes")
                     UrlConvert(url);
                     setFileName(data.title);
                     setShowTitle(data.title);
@@ -195,8 +186,8 @@ export default function InstgramConvertPage() {
                     setShowVideo(true);
                 }
                 else {
-                    console.log("title error")
-                    console.log("error to convert the video try again!!")
+                    // console.log("title error")
+                    // console.log("error to convert the video try again!!")
                     setShow(true)
                     setLoader(false);
                     setpointerEvents(false);
@@ -209,7 +200,6 @@ export default function InstgramConvertPage() {
 
 
     function getVideoName(YTURL) {
-        console.log("getVideo title....")
         fetch('/api/youtube/getvideoname', {
             method: 'POST',
             headers: {
@@ -223,14 +213,12 @@ export default function InstgramConvertPage() {
             .then((jsonData) => {
                 setFileName(jsonData.name)
                 setShowTitle(jsonData.name)
-                console.log("name ", fileName, "  jsonData", jsonData.name)
             })
             .catch((error) => {
                 console.error(error)
             })
     }
     async function UrlConvert(YTURL) {
-        console.log("starting video convert....")
         // getVideoName(YTURL)
         fetch('/api/youtube/convertUrl', {
             method: 'POST',
@@ -243,13 +231,9 @@ export default function InstgramConvertPage() {
                     selectedOption: selectedOption
                 })
         }).then(function (response) {
-            console.log("statuss", response.status); // returns 200
             response.blob().then(data => {
-                console.log("blob size:data   ", data)
                 if (data.size > 1000) {
-                    console.log("data 37:", data, Date())
                     let url = window.webkitURL.createObjectURL(data);
-                    console.log("url", url)
                     let a = document.createElement('a');
                     a.href = url;
                     // setUrlInput(url)
@@ -259,7 +243,6 @@ export default function InstgramConvertPage() {
                     setBtnDownload(true)
                     a.download = `mployees.${selectedOption}`;
                     //a.click();
-                    console.log("colling func");
                     // getVideoName(YTURL)
                 }
                 else {
@@ -273,7 +256,6 @@ export default function InstgramConvertPage() {
     }
 
     async function getVideo(URL) {
-        console.log('getvideo URL', URL);
 
         const response = await fetch('/api/youtube/video', {
             method: 'POST',
@@ -286,11 +268,8 @@ export default function InstgramConvertPage() {
                 })
         }).then(response => response.json())
             .then(data => {
-                console.log(data)
                 setUrlInput(data.meta.formats[0].url)
-                console.log("testdata: ", data.meta.formats[0].url)
                 setpointerEvents(false);
-                console.log("urll", data.meta.formats[0].url);
                 download(data.meta.formats[0].url)
             })
             .catch(err => console.error(err))

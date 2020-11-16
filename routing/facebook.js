@@ -14,11 +14,11 @@ router.post('/getdetailsFB', async function (req, res) {
     //         // res.send(info.link)
     //     }
     //     );
-    console.log("getdetailsFB ..", "utl: ", url)
+    // console.log("getdetailsFB ..", "utl: ", url)
     facebookData = facebookGetLink(url).then(response => {
         // console.log(response)
         fbvid.high(url).then(vid => {
-            console.log(vid);
+            // console.log(vid);
             res.send({ "DL": response, "VDATA": vid.url })
         });
 
@@ -30,9 +30,9 @@ router.post('/getdetailsFB', async function (req, res) {
 
 // this method to get the video and convert it and send to the client
 router.post('/convertUrl', async function (req, res) {
-    console.log("convertUrlFB..", Date())
+    // console.log("convertUrlFB..", Date())
     const { YTURL, selectedOption } = req.body;
-    console.log("YTURL: ", YTURL, " selectedOption: ", selectedOption)
+    // console.log("YTURL: ", YTURL, " selectedOption: ", selectedOption)
     var videopromise12
     var options = ['--extract-audio',
         '--audio-format', 'mp3',
@@ -44,16 +44,19 @@ router.post('/convertUrl', async function (req, res) {
             if (err) return res.send(
                 { error: 'The link you provided either not a valid url or it is not acceptable' });
             else {
-                console.log("next :...")
-                console.log("title ", info.title)
+                // console.log("next :...")
+                // console.log("title ", info.title)
             }
         })
         videopromise12 = youtubedl(YTURL);
-        videopromise12.on("close", () => { console.log("all done!!!") })
-        console.log("Sending file...")
+        videopromise12.on("close", () => {
+            //  console.log("all done!!!") 
+    })
+
+        // console.log("Sending file...")
         res.send(videopromise12.pipe(res))
     } catch (e) {
-        console.log("error ", e);
+        // console.log("error ", e);
     }
 })
 
