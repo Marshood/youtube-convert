@@ -69,7 +69,7 @@ export default function ContactUsPage() {
                                 <textarea className="textarea" name="message" type="text" id="input-message" placeholder="Message" required></textarea>
                             </div>
                             <div className=" ">
-                                <button className="contactUs__button" id="input-submit" type="submit">Convert </button>
+                                <button className="contactUs__button" id="input-submit" type="submit">Send  </button>
                             </div>
                         </form>
                     }

@@ -1,3 +1,7 @@
+form > div > input{
+    display: block;
+    margin: 0.5em auto;
+}
 .contactUs__container {
     display: grid;
     height: 100vh;
