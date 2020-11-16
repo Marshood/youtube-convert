@@ -31,10 +31,10 @@ app.use(
   })
 );
 // app.use(express.static("public"));
- app.use(express.static(path.join(__dirname,'client/build')));
+ app.use(express.static(path.join(__dirname,'downloaderapp/build')));
 //handle react routing retun all requsts to react app
 app.get('*',function(req,res){
-  res.sendFile(path.join(__dirname,'client/build','index.html'))
+  res.sendFile(path.join(__dirname,'downloaderapp/build','index.html'))
 })
 
 const youtubeRouter = require("./routing/youtube");
