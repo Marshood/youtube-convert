@@ -21,6 +21,8 @@ app.use("/api/youtube", youtubeRouter);
 const facebookRouter = require("./routing/facebook");
 app.use("/api/facebook", facebookRouter);
 
+const instgramRouter = require("./routing/instgram");
+app.use("/api/instgram", instgramRouter);
 
  
 

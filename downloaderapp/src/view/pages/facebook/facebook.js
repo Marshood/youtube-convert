@@ -44,14 +44,14 @@ export default function YoutubeConvertPage() {
         setVideoID('');
     }
     return (
-        <div className={pointerEvents ? "container pointerEvents" : "container"}>
+        <div className={pointerEvents ? "facebook__container pointerEvents" : "facebook__container"}>
 <script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <div className="header">
+            <div className="facebook__header">
                 <h1  >Facebook Converter </h1>
             </div>
 
-            <main>
-                <div className="main">
+            <main className="facebook__mainO">
+                <div className="facebook__main">
                     <Loader
                         type="Puff"
                         color="#00BFFF"
@@ -111,7 +111,7 @@ export default function YoutubeConvertPage() {
             </main>
 
             {/* <div id="sidebar">Sidebar</div> */}
-            <div className="about">
+            <div className="facebook__about">
             <p><h2> Facebook Converter</h2></p>
                 <p>
                     By using our converter you can easily convert Facebook videos to mp3 or mp4 files and download them for free - this service works for computer and mobile devices.
@@ -124,7 +124,7 @@ export default function YoutubeConvertPage() {
                 </p>
             </div>
 
-            <div className="appUse">
+            <div className="facebook__appUse">
                 {/* BsArrowRightShort */}
                 <h1>How to use our Facebook Converter</h1>
 

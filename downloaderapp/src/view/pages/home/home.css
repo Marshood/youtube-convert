@@ -59,7 +59,7 @@ body {    background:#d6e6f2;
   h2{
     text-align: center; 
   }
-  main {
+  .home__main {
     background:#769fcd;
     grid-area: main;
     border-radius: var(--main-radius);
@@ -69,12 +69,7 @@ body {    background:#d6e6f2;
     margin: 20px;
     }
   
-  #sidebar {
-    background: rgb(212, 212, 212);
-    grid-area: sidebar;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-  }
+ 
   
   .home__about {
     background:#b9d7ea;
@@ -118,24 +113,4 @@ body {    background:#d6e6f2;
     }
   }
 
-  .alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .closebtn:hover {
-    color: black;
-  }
-  
+ 

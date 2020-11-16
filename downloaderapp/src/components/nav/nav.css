@@ -95,7 +95,16 @@
   
   }
   
-  
+  @media screen and (max-width: 1450px) {
+    .sidebar__header-wrapper2 {
+      font-size: 0px;
+      color: #808080;
+      position: relative;
+      line-height: 3rem;
+      transition: all 0.4s;
+    }
+  }
+
   @media screen and (max-width: 1100px) {
   
               nav {
@@ -140,6 +149,7 @@
               .menu__wrapper-2 {
                 padding-top: 1rem;
                 height: 88vh;
+                width: 100%;
                 grid-area: menu;
                 background-color: #cbe2f3;
                 
@@ -189,8 +199,8 @@
                .analysis__logo, .status__logo, .admin__logo, .register__logo {
                
                 padding: 1px;
-                width: 50%;;
-                height: 50%;;
+                width: 40%;;
+                height: 40%;;
                 opacity: .8;
               }
               

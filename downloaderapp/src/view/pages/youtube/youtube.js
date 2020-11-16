@@ -45,12 +45,13 @@ import { SocialIcon } from 'react-social-icons';
     }
     return (
         <div className={pointerEvents ? "youtube__container youtube__pointerEvents" : "youtube__container"}>
-             <script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+             <script data-ad-client="ca-pub-1844108616693955"
+              async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="youtube__header">
                 <h1  >Youtube Converter </h1>
             </div>
 
-            <main>
+            <main className="youtube__mainO">
                 <div className="youtube__main">
                     <Loader
                         type="Puff"
@@ -65,7 +66,6 @@ import { SocialIcon } from 'react-social-icons';
                             <span class="closebtn" onClick={AlertHide}>&times;</span>
                             <strong>Error!</strong> Your link invalid, Please try again
                       </div>
-
                     }
                     {!show &&
                         <form onSubmit={(e) => sendLinkProcessing(e)}  >
@@ -74,7 +74,7 @@ import { SocialIcon } from 'react-social-icons';
                             <br></br>
                             <div className="youtube__form_style_input">
                                 <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value); clearInputData(); }} /><br />
-                                <p className="youtube__PFontSize">Format:</p>
+                                <p className="youtube__PFontSize ">Format:</p>
 
                                 <select onChange={handleChange} name="cars" id="cars">
                                     <option value="mp4">MP4/ Video</option>
@@ -102,17 +102,14 @@ import { SocialIcon } from 'react-social-icons';
                                 }
                             </div>
                         </form>
-
                     }
-
                 </div>
             </main>
 
             {/* <div id="sidebar">Sidebar</div> */}
             <div className="youtube__about">
-                    
                 <h1> YouTube Converter</h1>
-                <p>
+                <p className="p__youtube">
                     By using our converter you can easily convert YouTube videos to mp3 or mp4 files and download them for free - this service works for computer and mobile devices.
                     <br></br> <br></br>
                     The videos are always converted in the highest available quality. Please note that we can only convert videos up to a length of 1.5 hour - the limitation is necessary, so the conversion of any video will not take more than a couple of secunds.
@@ -126,7 +123,7 @@ import { SocialIcon } from 'react-social-icons';
             <div className="youtube__appUse ">
                 {/* BsArrowRightShort */}
                 <h2>How to use our YouTube Converter</h2>
-                <p>
+                <p className="p__youtube">
                 <FcNext size={32} /> Copy a video link
                 In order to convert your file, you’ll need to choose a video first. So go ahead and visit YouTube  and copy a link to the video that you’d like to get converted
                 <br></br><br></br>
@@ -141,7 +138,7 @@ import { SocialIcon } from 'react-social-icons';
             </div>
 
             <footer>
-            <p><small>&copy; 2020 - Marshood Ayoub</small>  </p>
+            <p className="p__youtube"><small>&copy; 2020 - Marshood Ayoub</small>  </p>
             <SocialIcon url="https://www.linkedin.com/in/marshoodayoub/" style={{ height: 25, width: 25 }}/>
                 <SocialIcon url="https://github.com/Marshood"style={{ height: 25, width: 25 }}  />
                 <SocialIcon url="https://www.facebook.com/marshoodayoub" style={{ height: 25, width: 25 }} />

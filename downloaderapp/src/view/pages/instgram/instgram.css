@@ -4,7 +4,7 @@ body {    background:#d6e6f2;
    pointer-events: none;
 
 }
-p{
+.p__instgram{
    font-size: large;
 }
 .box{
@@ -47,7 +47,6 @@ cursor: pointer;
 
 }
 
-
 .button:hover {background-color: #680b0b}
 .button:active {
 background-color: #3e8e41;
@@ -55,9 +54,7 @@ box-shadow: 0 5px #666;
 transform: translateY(4px);
 }
 
-
-/* .................... */
-
+ 
 
 :root {
 --main-radius: 5px;
@@ -70,7 +67,7 @@ font-family: "Inter", sans-serif;
 .PFontSize{
  font-size: large;
 }
-.container {
+.Instgram__container {
 display: grid;
 height: 100vh;
 grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
@@ -91,7 +88,7 @@ zoom: 100%;
 
 }
 
-.header {
+.Instgram__header {
    background:#b9d7ea;
    grid-area: header;
    border-radius: var(--main-radius);
@@ -99,11 +96,11 @@ zoom: 100%;
    text-align: center;
    line-height: 5rem;
 }
-.main{
+.Instgram__main{
 text-align: center;
 
 }
-.appUse{
+.Instgram__appUse{
 background:  #769fcd;
 grid-area: appUse;
 border-radius: var(--main-radius);
@@ -116,7 +113,7 @@ margin: 20px;
 h2{
 text-align: center; 
 }
-main {
+.Instgram__mainO {
 background:#769fcd;
 grid-area: main;
 border-radius: var(--main-radius);
@@ -133,7 +130,7 @@ border-radius: var(--main-radius);
 padding-top: var(--main-padding);
 }
 
-.about {
+.Instgram__about {
 background:#d6e6f2;
 grid-area: content1;
 border-radius: var(--main-radius);
@@ -142,7 +139,6 @@ border: 5px solid #769fcd;
 padding: 50px;
 margin: 20px;
 }
-
 
 footer {
 background: #b9d7ea;
@@ -164,7 +160,10 @@ margin: 1rem;
 } */
 
 @media only screen and (max-width: 550px) {
-.container {
+   p{
+   font-size: medium;
+}
+.Instgram__container {
  grid-template-columns: 1fr;
  grid-template-rows: 0.4fr 0fr 2fr 1fr      1fr  1fr;
  grid-template-areas:
@@ -172,10 +171,26 @@ margin: 1rem;
    "sidebar"
    "main"
    "content1"
-     
    "appUse"
    "footer";
 }
+input{
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #d6e6f2
+    
+    }
+    .Instgram__mainO {
+       background:#769fcd;
+       grid-area: main;
+       border-radius: var(--main-radius);
+       padding-top: var(--main-padding);
+       border: 10px solid#d6e6f2;
+       padding: 5px;
+       margin: 2px;
+       }
 }
 
 .alert {

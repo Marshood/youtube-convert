@@ -1,10 +1,8 @@
-body {    background:#d6e6f2;
-}
+ 
 .pointerEvents{
    pointer-events: none;
-
 }
-p{
+.p__facebook{
    font-size: large;
 }
 .hideBtnDownload{
@@ -14,14 +12,7 @@ p{
  from { box-shadow: 0 4px rgb(104, 109, 108);}
  to { box-shadow: 0 4px rgb(236, 5, 5);}
 }
-input{
-width: 500px;
-padding: 12px 20px;
-margin: 8px 0;
-box-sizing: border-box;
-border: 5px solid #d6e6f2
-
-}
+ 
 .button {
 display: inline-block;
 padding: 1px 25px;
@@ -35,11 +26,9 @@ background-color:#92b1d4;
 border: none;
 border-radius: 15px;
 box-shadow: 0 4px rgb(104, 109, 108);
-
 cursor: pointer;
 
 }
-
 
 .button:hover {background-color: #680b0b}
 .button:active {
@@ -48,22 +37,18 @@ box-shadow: 0 5px #666;
 transform: translateY(4px);
 }
 
-
 /* .................... */
-
 
 :root {
 --main-radius: 5px;
 --main-padding: 5px;
 }
 
-body {
-font-family: "Inter", sans-serif;
-}
+ 
 .PFontSize{
  font-size: 15px;
 }
-.container {
+.facebook__container {
 display: grid;
 height: 100vh;
 grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
@@ -84,7 +69,7 @@ zoom: 100%;
 
 }
 
-.header {
+.facebook__header {
    background:#b9d7ea;
    grid-area: header;
    border-radius: var(--main-radius);
@@ -92,11 +77,11 @@ zoom: 100%;
    text-align: center;
    line-height: 5rem;
 }
-.main{
+.facebook__main{
 text-align: center;
 
 }
-.appUse{
+.facebook__appUse{
 background:  #769fcd;
 grid-area: appUse;
 border-radius: var(--main-radius);
@@ -109,7 +94,7 @@ margin: 20px;
 h1{
 text-align: center; 
 }
-main {
+.facebook__mainO {
 background:#769fcd;
 grid-area: main;
 border-radius: var(--main-radius);
@@ -126,7 +111,7 @@ border-radius: var(--main-radius);
 padding-top: var(--main-padding);
 }
 
-.about {
+.facebook__about {
 background:#d6e6f2;
 grid-area: content1;
 border-radius: var(--main-radius);
@@ -135,7 +120,6 @@ border: 5px solid #d6e6f2;
 padding: 50px;
 margin: 20px;
 }
-
 
 footer {
 background: #b9d7ea;
@@ -157,7 +141,7 @@ margin: 1rem;
 } */
 
 @media only screen and (max-width: 550px) {
-.container {
+.facebook__container {
  grid-template-columns: 1fr;
  grid-template-rows: 0.4fr 0fr 2fr 1fr      1fr  1fr;
  grid-template-areas:
@@ -168,6 +152,24 @@ margin: 1rem;
    "appUse"
    "footer";
 }
+
+input{
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 5px solid #d6e6f2
+    
+    }
+    .facebook__mainO {
+       background:#769fcd;
+       grid-area: main;
+       border-radius: var(--main-radius);
+       padding-top: var(--main-padding);
+       border: 10px solid#d6e6f2;
+       padding: 5px;
+       margin: 2px;
+       }
 }
 
 .alert {

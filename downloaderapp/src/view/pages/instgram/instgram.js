@@ -18,6 +18,8 @@ export default function InstgramConvertPage() {
     const [fileName, setFileName] = useState("Downloading") // set file name to download
     const [VideoID, setVideoID] = useState('KrMIczw4Dng');
     const [ShowVideo, setShowVideo] = useState(true);
+    const [INV, setINV] = useState('');
+
     //to set the foramt
     const handleChange = selectedOption => {
         seTselectedOption(selectedOption.target.value);
@@ -45,14 +47,14 @@ export default function InstgramConvertPage() {
         setVideoID('');
     }
     return (
-        <div className={pointerEvents ? "container pointerEvents" : "container"}>
+        <div className={pointerEvents ? "Instgram__container pointerEvents" : "Instgram__container"}>
 <script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <div className="header">
+            <div className="Instgram__header">
                 <h1 >Instgram Converter </h1>
             </div>
 
-            <main>
-                <div className="main">
+            <main className="Instgram__mainO">
+                <div className="Instgram__main">
                     <Loader
                         type="Puff"
                         color="#00BFFF"
@@ -88,7 +90,7 @@ export default function InstgramConvertPage() {
                                     {showTitle}
                                 </h4>
                                 {ShowVideo &&
-                                    <iframe width="auto" height="auto" src={`https://www.youtube.com/embed/${VideoID}`} frameborder="0" allowfullscreen></iframe>
+                                    <iframe width="auto" height="auto" src={`${INV}`} frameborder="0" allowfullscreen></iframe>
                                 }
                                 <br></br>
                                 {
@@ -110,7 +112,7 @@ export default function InstgramConvertPage() {
             </main>
 
             {/* <div id="sidebar">Sidebar</div> */}
-            <div className="about">
+            <div className="Instgram__about">
                 <p><h2> Instgram Converter</h2></p>
                 <p>
                     By using our converter you can easily convert Instgram videos to mp3 or mp4 files and download them for free - this service works for computer and mobile devices.
@@ -123,7 +125,7 @@ export default function InstgramConvertPage() {
                 </p>
             </div>
 
-            <div className="appUse">
+            <div className="Instgram__appUse">
 
                 {/* BsArrowRightShort */}
                 <p>
@@ -169,7 +171,7 @@ export default function InstgramConvertPage() {
 
     function checkURL(url) {
         console.log("url ", url)
-        fetch('/api/youtube/checkURL', {
+        fetch('/api/instgram/Getdetails', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -187,7 +189,7 @@ export default function InstgramConvertPage() {
                     UrlConvert(url);
                     setFileName(data.title);
                     setShowTitle(data.title);
-                    setVideoID(data.id)
+                    setINV(data.video_link)
                     setShowVideo(true);
                 }
                 else {
