@@ -16,7 +16,8 @@ router.post('/Getdetails',async function (req,res){
     if(video_url !== undefined){
 
         if(video_url.substring(0,8) === 'https://' || video_url.substring(0,7) === 'http://' 
-                || video_url.substring(0,21) === 'https://www.instagram' || video_url.substring(0,20) === 'http://www.instagram.com'){
+                || video_url.substring(0,21) === 'https://www.instagram' || video_url.substring(0,20) === 'http://www.instagram.com')
+                {
 
             request(video_url, (error, response, html) => {
                 if(!error){

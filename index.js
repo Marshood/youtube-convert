@@ -23,6 +23,8 @@ app.use("/api/facebook", facebookRouter);
 
 const instgramRouter = require("./routing/instgram");
 app.use("/api/instgram", instgramRouter);
+const contactTouter = require("./routing/contact");
+app.use("/api/contact", contactTouter);
 
  
 

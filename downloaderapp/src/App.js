@@ -5,7 +5,7 @@ import YoutubeConvertPage from './view/pages/youtube/youtube';
 import InstgramConvertPage from './view/pages/instgram/instgram';
 import Home from './view/pages/home/home'
 import FacebookConvertPage from './view/pages/facebook/facebook'
-import contact_usPage from './view/pages/contactUS/contact_us'
+import ContacttPage from './view/pages/contactUS/contact_us'
 import {
   BrowserRouter as Router,
   Switch,
@@ -55,7 +55,7 @@ import { createBrowserHistory } from "history";
               <YoutubeConvertPage />
             </Route>
             <Route path="/contact_us">
-              <contact_usPage />
+              <ContacttPage />
             </Route>
           </Switch>
         </div>

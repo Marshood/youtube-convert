@@ -64,10 +64,12 @@ export default function InstgramConvertPage() {
                         //  timeout={3000} //3 secs
                         visible={LoaderT} />
                     {show &&
-                        <div class="alert">
-                            <span class="closebtn" onClick={AlertHide}>&times;</span>
-                            <strong>Error!</strong> Your link invalid, Please try again
-                      </div>
+                                <div class="alert">
+                                <span class="closebtn" onClick={AlertHide}>&times;</span>
+                                <strong>Error! </strong> <br></br>This video might be private and not public. <br></br>
+                                Our system was not able to detect any video at the adress you provided.. Please, double check the url. <br></br>
+                                 If you are sure that this page has a video, contact us to see if it can be added to the list of supported sites..
+                           </div>
 
                     }
                     {!show &&
@@ -76,7 +78,7 @@ export default function InstgramConvertPage() {
                             <h1>Please insert a valid video URL</h1>
                                                         <br></br>
                             <div className="form_style_input">
-                                <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value);clearInputData(); }} /><br />
+                                <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value);clearInputData(); }} required/><br />
                                 <p className="PFontSize">Format:</p>
 
                                 <select onChange={handleChange} name="cars" id="cars">

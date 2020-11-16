@@ -1,23 +1,17 @@
 @media screen and (max-width: 20000px) {
-
   .sidebar {
     position: fixed;
      margin: 0;
     padding: 0;
     width: 11vw; 
-    
   }
-  
   nav {
     font-family: "Roboto Slab", serif;
-    
   }
   
   .Yconvert__logo {
     height: 40%;
   }
-  
-  
   
   .sidebar__header-wrapper2 {
     position: relative;
@@ -32,11 +26,6 @@
     font-size: 29px;
     font-family: 'Roboto Slab', serif;
   }
-  
-  
-  
-  
-    
   .menu__wrapper-2 {
     padding-top: 1rem;
     height: 88vh;
@@ -93,6 +82,36 @@
     text-shadow:0 0.7px 0.7px rgba(255, 255, 255, 0.219);
   }
   
+/**/
+.Contack_Us{
+  font-size: medium;
+}
+.Contack_Us--selected{
+ font-size: 0px;
+}
+.menu__item--selected---contactUs{
+ font-size: medium !important;
+ color: #444444;
+ background-color: #769fcd;
+}
+.menu__link--selected---Contack_Us{
+ font-size: medium !important;
+ color: #444444;
+}
+.menu__link--contactUs{
+font-size: medium;
+color: #808080;
+position: relative;
+line-height: 3rem;
+transition: all 0.4s;
+}
+.menu__link--contactUs:hover {
+font-size: medium;
+color: #444444;
+}
+/**/
+
+
   }
   
   @media screen and (max-width: 1450px) {
@@ -106,7 +125,32 @@
   }
 
   @media screen and (max-width: 1100px) {
-  
+    .Contack_Us{
+      font-size: 0px;
+    }
+    .Contack_Us--selected{
+      font-size: 0px;
+     }
+     .menu__item--selected---contactUs{
+      font-size:  0px !important;
+      color: #444444;
+      background-color: #769fcd;
+     }
+     .menu__link--selected---Contack_Us{
+      font-size:  0px !important;
+      color: #444444;
+     }
+  .menu__link--contactUs{
+    font-size:  0px;
+    color: #808080;
+    position: relative;
+    line-height: 3rem;
+    transition: all 0.4s;
+  }
+  .menu__link--contactUs:hover {
+    font-size: 0px;
+    color: #444444;
+  }
               nav {
                 font-family: "Roboto Slab", serif;
               }
@@ -245,29 +289,4 @@
               }
               
   }
-   .Contack_Us{
-     font-size: medium;
-   }
-   .Contack_Us--selected{
-    font-size: 0px;
-   }
-   .menu__item--selected---contactUs{
-    font-size: medium !important;
-    color: #444444;
-    background-color: #769fcd;
-   }
-   .menu__link--selected---Contack_Us{
-    font-size: medium !important;
-    color: #444444;
-   }
-.menu__link--contactUs{
-  font-size: medium;
-  color: #808080;
-  position: relative;
-  line-height: 3rem;
-  transition: all 0.4s;
-}
-.menu__link--contactUs:hover {
-  font-size: medium;
-  color: #444444;
-}
+   

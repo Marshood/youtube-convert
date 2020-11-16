@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner';
 import './facebook.css'
 import { FcNext } from "react-icons/fc";
 import { SocialIcon } from 'react-social-icons';
-export default function YoutubeConvertPage() {
+export default function FacebookConvertPage() {
     const [LoaderT, setLoader] = useState(false); // to show the loader icon
     const [urlInput, setUrlInput] = useState(''); // to save the url input
     const [urlOutpot, setUrlOutpot] = useState(''); // save blobr
@@ -36,8 +36,7 @@ export default function YoutubeConvertPage() {
         setShowVideo(false);
         setVideoID('');
     }
-    function clearInputData()
-    {
+    function clearInputData() {
         setShowVideo(false)
         setBtnDownload(false)
         setShowTitle();
@@ -45,7 +44,7 @@ export default function YoutubeConvertPage() {
     }
     return (
         <div className={pointerEvents ? "facebook__container pointerEvents" : "facebook__container"}>
-<script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script data-ad-client="ca-pub-1844108616693955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="facebook__header">
                 <h1  >Facebook Converter </h1>
             </div>
@@ -63,8 +62,10 @@ export default function YoutubeConvertPage() {
                     {show &&
                         <div class="alert">
                             <span class="closebtn" onClick={AlertHide}>&times;</span>
-                            <strong>Error!</strong> Your link invalid, Please try again
-                      </div>
+                            <strong>Error! </strong> <br></br>This video might be private and not public. <br></br>
+                            Our system was not able to detect any video at the adress you provided.. Please, double check the url. <br></br>
+                             If you are sure that this page has a video, contact us to see if it can be added to the list of supported sites..
+                       </div>
 
                     }
                     {!show &&
@@ -73,7 +74,7 @@ export default function YoutubeConvertPage() {
                             <h1>Please insert a valid video URL</h1>
                             <br></br>
                             <div className="form_style_input">
-                                <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value); clearInputData(); }} /><br />
+                                <input type="text" id="LinkURL" name="urlyoutube" value={urlInput} onChange={(e) => { setUrlInput(e.target.value); clearInputData(); } } required/><br />
                                 <p className="PFontSize">Format:</p>
 
                                 <select onChange={handleChange} name="cars" id="cars">
@@ -112,7 +113,7 @@ export default function YoutubeConvertPage() {
 
             {/* <div id="sidebar">Sidebar</div> */}
             <div className="facebook__about">
-            <p><h2> Facebook Converter</h2></p>
+                <p><h2> Facebook Converter</h2></p>
                 <p>
                     By using our converter you can easily convert Facebook videos to mp3 or mp4 files and download them for free - this service works for computer and mobile devices.
                     <br></br> <br></br>
@@ -145,11 +146,11 @@ export default function YoutubeConvertPage() {
 
             <footer>
                 <p><small>&copy; 2020 - Marshood Ayoub</small></p>
-                <SocialIcon url="https://www.linkedin.com/in/marshoodayoub/" style={{ height: 25, width: 25 }}/>
-                <SocialIcon url="https://github.com/Marshood"style={{ height: 25, width: 25 }}  />
+                <SocialIcon url="https://www.linkedin.com/in/marshoodayoub/" style={{ height: 25, width: 25 }} />
+                <SocialIcon url="https://github.com/Marshood" style={{ height: 25, width: 25 }} />
                 <SocialIcon url="https://www.facebook.com/marshoodayoub" style={{ height: 25, width: 25 }} />
-                <SocialIcon url="https://www.instagram.com/marshood1/"style={{ height: 25, width: 25 }}  />
-                <SocialIcon url="https://www.youtube.com/user/marshood94"style={{ height: 25, width: 25 }}  />
+                <SocialIcon url="https://www.instagram.com/marshood1/" style={{ height: 25, width: 25 }} />
+                <SocialIcon url="https://www.youtube.com/user/marshood94" style={{ height: 25, width: 25 }} />
             </footer>
         </div >
 
